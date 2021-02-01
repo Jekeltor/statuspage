@@ -2,7 +2,7 @@
 	/////////////////////////////////////////////////////////////////////////
 	//                                                                     //
 	//                       Created by Jake Hamblin                       //
-    //                           jakehamblin.com                           //
+        //                           jakehamblin.com                           //
 	//                                                                     //
 	//  FOR ALL THE VALUES, MAKE SURE TO KEEP THE QUOTATIONS AROUND THEM!  //
 	//                                                                     //
@@ -17,6 +17,9 @@
 
 	// Description of your server/community
 	$description = "Description";
+
+	// Background Image URL
+	$backgroundimageurl = "https://uhdwallpapers.org/uploads/converted/18/04/16/neon-stream-1920x1080_46969-mm-90.jpg"
 
 	// Main Color
 	$colorhex = "#0f7cff";
