@@ -54,7 +54,7 @@
 			width: 100%;
 			overflow: hidden;
 			margin: 0;
-			background-color: rgb(39, 43, 48);
+			background-image: <?php echo $backgroundimageurl ?>;
 			font-family: 'Inria Sans', sans-serif;
 		}
 
@@ -155,7 +155,6 @@
 			min-height: 50vh;
 			min-width: 40vw;
 			padding: 5vh 2%;
-			background-color: rgba(255, 255, 255, .2);
 			align-items: center;
 			justify-content: center;
 		}
