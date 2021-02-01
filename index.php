@@ -109,6 +109,18 @@
 			justify-content: center;
 			overflow: hidden;
 		}
+		
+		.body .homebutton {
+  			background-color: white;
+  			color: white;
+			border: 2px solid black;
+			float: right;
+  			padding: 15px 50px;
+  			text-align: center;
+  			text-decoration: none;
+  			display: inline-block;
+  			font-size: 16px;
+		}
 
 		.body .announcementspacer {
 			width: 44vw;
@@ -254,6 +266,9 @@
 </section>
 <body>
 	<section class="body">
+		<button class="homebutton" onclick="window.location.href='<?php echo $homedomainurl ?>';">
+      			Back To Home
+    		</button>
 	  	<div class="screen">
 	  		<div class="announcementspacer">
 	  		<?php
