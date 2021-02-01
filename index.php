@@ -50,11 +50,11 @@
 	</script>
 	<style>
 		body {
-			height: 100vh;
+			height: 90vh;
 			width: 100%;
 			overflow: hidden;
 			margin: 0;
-			background-image: <?php echo $backgroundimageurl ?>;
+			background-image: url(<?php echo $backgroundimageurl ?>);
 			font-family: 'Inria Sans', sans-serif;
 		}
 
@@ -96,12 +96,6 @@
 			animation: .25s ease-in 0s 1 preloader;
 			animation-fill-mode: forwards;
 		}
-		
-		.jakehamblinsucksballslol {
-  			width: 135px;
-  			height: 135px;
-			padding: 1px 16px;
-		}
 
 		.body {
 			display: flex;
@@ -116,12 +110,20 @@
 			overflow: hidden;
 		}
 		
-		.body .homebutton {
+		.jakehamblinsucksballslol {
+  			width: 135px;
+  			height: 135px;
+			padding: 1px 16px;
+		}
+		
+		.homebutton {
+		    padding: 1px 16px;
   			background-color: white;
   			color: white;
 			border: 2px solid black;
+			margin: 22px 20px;
 			float: right;
-  			padding: 15px 50px;
+  			padding: 14px 48px;
   			text-align: center;
   			text-decoration: none;
   			display: inline-block;
@@ -161,7 +163,6 @@
 			width: 100%;
 			position: absolute;
 			z-index: 2;
-			background-image: linear-gradient(rgba(<?php echo $colorrgb ?>, .5), rgba(39, 43, 48, 1));
 			align-items: center;
 			justify-content: center;
 			text-align: center;
@@ -169,10 +170,10 @@
 
 		.body .screen .spacer {
 			display: flex;
-			margin-top: 5vh;
-			min-height: 50vh;
+			margin-top: 0vh;
+			min-height: 1vh;
 			min-width: 40vw;
-			padding: 5vh 2%;
+			padding: 4vh 2%;
 			align-items: center;
 			justify-content: center;
 		}
@@ -265,17 +266,17 @@
 			}
 		} 
 	</style>
-	<img class="jakehamblinsucksballslol" src="<?php echo $logo ?>"></img>
 </head>
 <section class="loader" id="loader">
 	<div class="loading">
 	</div>
 </section>
 <body>
-	<section class="body">
+    <img class="jakehamblinsucksballslol" src="<?php echo $logo ?>"></img>
 		<button class="homebutton" onclick="window.location.href='<?php echo $homedomainurl ?>';">
       			Back To Home
     		</button>
+	<section class="body">
 	  	<div class="screen">
 	  		<div class="announcementspacer">
 	  		<?php
