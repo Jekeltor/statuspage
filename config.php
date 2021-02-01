@@ -26,6 +26,9 @@
 	// Background Image URL
 	$backgroundimageurl = "https://uhdwallpapers.org/uploads/converted/18/04/16/neon-stream-1920x1080_46969-mm-90.jpg"
 
+	// Home Page Domain
+	$homepagedomain = "https://hyperz.dev/";
+		
 	// Main Color
 	$colorhex = "#0f7cff";
 	/* END GENERAL SITE INFORMATION */
