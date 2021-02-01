@@ -9,3 +9,4 @@ https://hyperz.dev
 - Removed Background Gradient (index.php)
 - Added "Back To Home" Button (index.php)
 - Added "Back To Home" Button Config (config.php)
+- Added a logo in the top left of the status page (index.php)
