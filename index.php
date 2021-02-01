@@ -118,12 +118,12 @@
 		
 		.homebutton {
 		    padding: 1px 16px;
-  			background-color: white;
-  			color: white;
-			border: 2px solid black;
+		    background-color: transparent;
+			border: 2px solid white;
 			margin: 22px 20px;
 			float: right;
   			padding: 14px 48px;
+  			color: white;
   			text-align: center;
   			text-decoration: none;
   			display: inline-block;
