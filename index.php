@@ -96,6 +96,12 @@
 			animation: .25s ease-in 0s 1 preloader;
 			animation-fill-mode: forwards;
 		}
+		
+		.jakehamblinsucksballslol {
+  			width: 135px;
+  			height: 135px;
+			padding: 1px 16px;
+		}
 
 		.body {
 			display: flex;
@@ -259,6 +265,7 @@
 			}
 		} 
 	</style>
+	<img class="jakehamblinsucksballslol" src="<?php echo $logo ?>"></img>
 </head>
 <section class="loader" id="loader">
 	<div class="loading">
