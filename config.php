@@ -4,6 +4,11 @@
 	//                       Created by Jake Hamblin                       //
         //                           jakehamblin.com                           //
 	//                                                                     //
+	//                                                                     //
+	//                         Edits Made By Hyperz                        //
+	//                          https://hyperz.dev                         //
+	//                                                                     //
+	//                                                                     //
 	//  FOR ALL THE VALUES, MAKE SURE TO KEEP THE QUOTATIONS AROUND THEM!  //
 	//                                                                     //
 	/////////////////////////////////////////////////////////////////////////
