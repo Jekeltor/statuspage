@@ -17,8 +17,11 @@
 	// Name of your server/community
 	$name = "Community Name";
 
+	// Domain URL
+	$domain = "https://hyperz.dev/status";
+
 	// Logo of your server/community
-	$logo = $domain."images/logo.png";
+	$logo = "https://jakehamblin.com/images/logo.png";
 
 	// Description of your server/community
 	$description = "Description";
