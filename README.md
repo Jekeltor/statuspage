@@ -4,5 +4,8 @@
 # Edits were created by Hyperz#0001
 https://hyperz.dev
 
-
-I simply just removed the ugly white box on the status page, I also added support for a background image. I also removed that background gradient.
+- Removed Ugly White Box Behind Status (index.php)
+- Added Background Image (config.php & index.php)
+- Removed Background Gradient (index.php)
+- Added "Back To Home" Button (index.php)
+- Added "Back To Home" Button Config (config.php)
