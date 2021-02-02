@@ -27,7 +27,7 @@
 	$description = "Description";
 
 	// Background Image URL
-	$backgroundimageurl = "https://uhdwallpapers.org/uploads/converted/18/04/16/neon-stream-1920x1080_46969-mm-90.jpg";
+	$backgroundimageurl = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpaperscraft.com%2Fimage%2Fmountains_starry_sky_night_132015_1920x1080.jpg&f=1&nofb=1";
 
 	// Home Page Domain
 	$homepagedomain = "https://hyperz.dev/";
