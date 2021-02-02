@@ -117,13 +117,14 @@
 		}
 		
 		.homebutton {
-		    padding: 1px 16px;
-		    background-color: transparent;
-			border: 2px solid white;
+		    	padding: 1px 16px;
+		    	background-color: transparent;
+			border-radius: 8px;
+			border: 2px solid <?php echo $colorhex ?>;
 			margin: 22px 20px;
 			float: right;
   			padding: 14px 48px;
-  			color: white;
+  			color: <?php echo $colorhex ?>;
   			text-align: center;
   			text-decoration: none;
   			display: inline-block;
