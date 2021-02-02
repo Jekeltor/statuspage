@@ -50,11 +50,11 @@
 	</script>
 	<style>
 		body {
-			height: 100vh;
+			height: 90vh;
 			width: 100%;
 			overflow: hidden;
 			margin: 0;
-			background-color: rgb(39, 43, 48);
+			background-image: url(<?php echo $backgroundimageurl ?>);
 			font-family: 'Inria Sans', sans-serif;
 		}
 
@@ -109,6 +109,27 @@
 			justify-content: center;
 			overflow: hidden;
 		}
+		
+		.jakehamblinsucksballslol {
+  			width: 135px;
+  			height: 135px;
+			padding: 1px 16px;
+		}
+		
+		.homebutton {
+		    	padding: 1px 16px;
+		    	background-color: transparent;
+			border-radius: 8px;
+			border: 2px solid <?php echo $colorhex ?>;
+			margin: 22px 20px;
+			float: right;
+  			padding: 14px 48px;
+  			color: <?php echo $colorhex ?>;
+  			text-align: center;
+  			text-decoration: none;
+  			display: inline-block;
+  			font-size: 16px;
+		}
 
 		.body .announcementspacer {
 			width: 44vw;
@@ -143,7 +164,6 @@
 			width: 100%;
 			position: absolute;
 			z-index: 2;
-			background-image: linear-gradient(rgba(<?php echo $colorrgb ?>, .5), rgba(39, 43, 48, 1));
 			align-items: center;
 			justify-content: center;
 			text-align: center;
@@ -151,11 +171,10 @@
 
 		.body .screen .spacer {
 			display: flex;
-			margin-top: 5vh;
-			min-height: 50vh;
+			margin-top: 0vh;
+			min-height: 1vh;
 			min-width: 40vw;
-			padding: 5vh 2%;
-			background-color: rgba(255, 255, 255, .2);
+			padding: 4vh 2%;
 			align-items: center;
 			justify-content: center;
 		}
@@ -254,6 +273,10 @@
 	</div>
 </section>
 <body>
+    <img class="jakehamblinsucksballslol" src="<?php echo $logo ?>"></img>
+		<button class="homebutton" onclick="window.location.href='<?php echo $homedomainurl ?>';">
+      			Back To Home
+    		</button>
 	<section class="body">
 	  	<div class="screen">
 	  		<div class="announcementspacer">

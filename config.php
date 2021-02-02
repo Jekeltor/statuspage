@@ -2,7 +2,12 @@
 	/////////////////////////////////////////////////////////////////////////
 	//                                                                     //
 	//                       Created by Jake Hamblin                       //
-    //                           jakehamblin.com                           //
+        //                           jakehamblin.com                           //
+	//                                                                     //
+	//                                                                     //
+	//                         Edits Made By Hyperz                        //
+	//                          https://hyperz.dev                         //
+	//                                                                     //
 	//                                                                     //
 	//  FOR ALL THE VALUES, MAKE SURE TO KEEP THE QUOTATIONS AROUND THEM!  //
 	//                                                                     //
@@ -12,12 +17,21 @@
 	// Name of your server/community
 	$name = "Community Name";
 
+	// Domain URL
+	$domain = "https://hyperz.dev/status";
+
 	// Logo of your server/community
-	$logo = $domain."images/logo.png";
+	$logo = "https://jakehamblin.com/images/logo.png";
 
 	// Description of your server/community
 	$description = "Description";
 
+	// Background Image URL
+	$backgroundimageurl = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpaperscraft.com%2Fimage%2Fmountains_starry_sky_night_132015_1920x1080.jpg&f=1&nofb=1";
+
+	// Home Page Domain
+	$homepagedomain = "https://hyperz.dev/";
+		
 	// Main Color
 	$colorhex = "#0f7cff";
 	/* END GENERAL SITE INFORMATION */
