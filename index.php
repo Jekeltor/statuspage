@@ -1,34 +1,35 @@
 <?php
- 	include("config.php");
+require_once("config.php");
 
- 	function checkStatus($ip, $port, $manual) {
-		if ($manual == "0") {
-	 		$fp = fsockopen($ip, $port, $errornum, $errorstr, 1);
-			if (!$fp) {
-	    		echo '<div class="right indicator offline">Offline <i class="fas fa-battery-empty"></i></div>';
-			}
-		 
-			elseif ($fp) {
-				echo '<div class="right indicator online">Operational <i class="fas fa-battery-full"></i></div>';
-			}
+function getStatusBoxes($ip, $port, $manual, $name)
+{
+	if ($manual == "0") {
+		$fp = fsockopen($ip, $port, $errornum, $errorstr, 1);
+		if (!$fp) {
+			echo "<div class='item offline'> <div class='left'>{$name}</div>";
+			echo '<div class="right indicator offline">Offline <i class="fas fa-battery-empty"></i></div>';
+		} elseif ($fp) {
+			echo "<div class='item online'> <div class='left'>{$name}</div>";
+			echo '<div class="right indicator online">Operational <i class="fas fa-battery-full"></i></div>';
 		}
-
- 		elseif ($manual == "1" or "2" or "3") {
- 			if ($manual == "1") {
- 				echo '<div class="right indicator online">Operational <i class="fas fa-battery-full"></i></div>';
- 			}
-
- 			elseif ($manual == "2") {
- 				echo '<div class="right indicator issues">Issues <i class="fas fa-battery-half"></i></div>';
- 			}
-
- 			elseif ($manual == "3") {
- 				echo '<div class="right indicator offline">Offline <i class="fas fa-battery-empty"></i></div>';
- 			}
- 		}
- 	}
-?><!DOCTYPE html>
+	} elseif ($manual == "1" or "2" or "3") {
+		if ($manual == "1") {
+			echo "<div class='item online'> <div class='left'>{$name}</div>";
+			echo '<div class="right indicator online">Operational <i class="fas fa-battery-full"></i></div>';
+		} elseif ($manual == "2") {
+			echo "<div class='item issues'> <div class='left'>{$name}</div>";
+			echo '<div class="right indicator issues">Issues <i class="fas fa-battery-half"></i></div>';
+		} elseif ($manual == "3") {
+			echo "<div class='item offline'> <div class='left'>{$name}</div>";
+			echo '<div class="right indicator offline">Offline <i class="fas fa-battery-empty"></i></div>';
+		}
+	}
+	echo "</div>";
+}
+?>
+<!DOCTYPE html>
 <html>
+
 <head>
 	<title>Status - <?php echo $name ?></title>
 	<link rel="icon" type="image/png" href="<?php echo $logo ?>" />
@@ -43,10 +44,12 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Inria+Sans&display=swap" rel="stylesheet">
 	<script>
-	  	window.onload = function() { 
-	  		setTimeout(function(){ var loader = document.getElementById('loader');
-	  		loader.classList.add("none"); }, 2000);
-	  	}
+		window.onload = function() {
+			setTimeout(function() {
+				var loader = document.getElementById('loader');
+				loader.classList.add("none");
+			}, 1000);
+		}
 	</script>
 	<style>
 		body {
@@ -76,20 +79,20 @@
 		}
 
 		.loader .loading:after {
-		  	content: "";
-		  	width: 8vh;
-		  	height: 8vh;
-		  	position: absolute;
-		  	top: -30px;
-		  	right: 0;
-		  	left: 0;
-		  	bottom: 0;
-		  	margin: auto;
-		  	border: 1vh solid #fff;
-		  	border-top: 1vh dotted #fff;
-		  	border-bottom: 1vh dotted #fff;
-		  	border-radius: 50%;
-		  	animation: loading 2s infinite;
+			content: "";
+			width: 8vh;
+			height: 8vh;
+			position: absolute;
+			top: -30px;
+			right: 0;
+			left: 0;
+			bottom: 0;
+			margin: auto;
+			border: 1vh solid #fff;
+			border-top: 1vh dotted #fff;
+			border-bottom: 1vh dotted #fff;
+			border-radius: 50%;
+			animation: loading 2s infinite;
 		}
 
 		.none {
@@ -221,16 +224,17 @@
 		}
 
 		@keyframes loading {
-		  	0% {
-		    	transform: rotate(0);
-		  	}
+			0% {
+				transform: rotate(0);
+			}
 
-		  	50% {
-		    	transform: rotate(360deg);
-		  	}
+			50% {
+				transform: rotate(360deg);
+			}
 		}
 
-		@media screen and (max-width: 600px), (orientation : portrait) {
+		@media screen and (max-width: 600px),
+		(orientation : portrait) {
 			.body .announcementspacer {
 				width: 94vw;
 			}
@@ -246,98 +250,50 @@
 			.body .screen .spacer .center .item {
 				margin-left: 5.5%;
 			}
-		} 
+		}
+
+		.online {
+			background-color: #1ea100;
+		}
+
+		.offline {
+			background-color: #cf0000;
+		}
+
+		.issues {
+			background-color: #ff8400;
+		}
 	</style>
 </head>
 <section class="loader" id="loader">
 	<div class="loading">
 	</div>
 </section>
+
 <body>
 	<section class="body">
-	  	<div class="screen">
-	  		<div class="announcementspacer">
-	  		<?php
-				if ($announcement == "") {
-				}
+		<div class="screen">
+			<div class="announcementspacer">
+				<?php if ($announcement !== "") { ?>
+					<div class="announcement">
+						<h1>Notification</h1>
+						<p><?php echo $announcement ?></p>
+					</div>
+				<?php } ?>
 
-				elseif ($announcement !== "") {
-			?>
-				<div class="announcement">
-					<h1>Notification</h1>
-					<p><?php echo $announcement ?></p>
+				<div class="spacer">
+					<div class="center">
+						<h1>Server Status</h1>
+						<?php
+						foreach ($servers as $name => $information) {
+						?>
+							<?php getStatusBoxes($information['IP'], $information['port'], $information['status'], $name) ?>
+						<?php } ?>
+					</div>
 				</div>
-			<?php } ?>
-		  		<div class="spacer">
-		  			<div class="center">
-			  			<h1>Server Status</h1>
-			  			<?php
-			  				foreach ($servers as $name => $information) {
-			  			?>
-			  				<div class="item">
-			  					<div class="left"><?php echo $name ?></div>
-			  					<?php checkStatus($information['IP'], $information['port'], $information['status']) ?>
-			  				</div>
-			  			<?php }?>
-			  		</div>
-		  		</div>
-	  		</div>
-	  	</div>
+			</div>
+		</div>
 	</section>
-	<script>
-		function copyText(e) {
-		  	var textToCopy = document.querySelector(e);
-		  	var textBox = document.querySelector(".clipboard");
-		  	var changetext = document.getElementById("change");
-
-		  	textBox.setAttribute('value', textToCopy.innerHTML);
-
-		  	textBox.select();
-		  	document.execCommand('copy');
-		  	changetext.innerHTML = "IP copied";
-  			setTimeout(function(){ 
-  				changetext.innerHTML = "Click to copy IP";
-  			}, 3000);
-		}
-
-		function dropDown() {
-			var dropdown = document.getElementById("dropdown");
-			var dropdownbtn = document.getElementById("dropdownbtn");
-			var navbar = document.getElementById("navbar");
-			var navbarleft = document.getElementById("navbarleft");
-
-			dropdown.classList.toggle("dropdownshow");
-			navbar.classList.toggle("navbarhidden");
-			navbarleft.classList.toggle("navbarlefthidden");
-			
-			if (dropdown.classList.contains("dropdownshow")) {
-				dropdownbtn.innerHTML = "<i class='fas fa-times'></i>";
-			}
-
-			else {
-				dropdownbtn.innerHTML = "<i class='fas fa-bars'></i>";
-			}
-		}
-
-		function checkStatus() {
-			var servers = document.getElementsByClassName("item");
-			for (var i = 0; i < servers.length; ++i) {
-				var server = servers[i];
-				if (server.innerHTML.includes("indicator online")) {
-					server.style.backgroundColor = "#1ea100";
-				}
-
-				else if (server.innerHTML.includes("indicator offline")) {
-					server.style.backgroundColor = "#cf0000";
-				}
-
-				else if (server.innerHTML.includes("indicator issues")) {
-					server.style.backgroundColor = "#ff8400";
-				}
-			}
-		}
-
-		checkStatus();
-	</script>
 </body>
+
 </html>
