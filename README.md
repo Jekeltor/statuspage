@@ -5,3 +5,5 @@
 https://gages.space
 
 Completely redesigned and took out extra functions that wasn't nessasary anymore.
+
+Here is a screen shot: https://gyazo.com/f563690f298c9f18ffb9e56488a06b63
