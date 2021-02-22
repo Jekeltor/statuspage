@@ -10,7 +10,7 @@
 
 /* GENERAL SITE INFORMATION  */
 // Name of your server/community
-$name = "Community Name";
+$name = "San Andreas Shoreline RP";
 
 // Domain of your server/community
 $domain = "https://statuspage.test";
@@ -22,7 +22,7 @@ $logo = $domain . "images/logo.png";
 $description = "Description";
 
 // Main Color
-$colorhex = "#0f7cff";
+$colorhex = "#FF0000";
 /* END GENERAL SITE INFORMATION */
 
 /* START STATUS PAGE */
@@ -56,15 +56,5 @@ $servers = [
 ];
 
 // If empty, the announcement won't appear
-$announcement = "Servers one and two are having some issues";
+$announcement = "We believe that a community can save lives. We are a group of people from every walk of life that happen to share a passion for roleplay in a game called GTA. We are San Andreas Shoreline RP.";
 /* END STATUS PAGE */
-
-
-/* RANDOM PHP FUNCTIONS AND JOBS */
-// Convert HEX provided to RGB
-list($r, $g, $b) = sscanf($colorhex, "#%02x%02x%02x");
-$colorrgb = $r . ", " . $g . ", " . $b;
-
-// Make color darked
-$darkerpercent = ".5";
-$colordarker = $r * $darkerpercent . ", " . $g * $darkerpercent . ", " . $b * $darkerpercent;

@@ -6,22 +6,22 @@ function getStatusBoxes($ip, $port, $manual, $name)
 	if ($manual == "0") {
 		$fp = fsockopen($ip, $port, $errornum, $errorstr, 1);
 		if (!$fp) {
-			echo "<div class='item offline'> <div class='left'>{$name}</div>";
-			echo '<div class="right indicator offline">Offline <i class="fas fa-battery-empty"></i></div>';
+			echo "<div class='status offline'> <div class='server-name'>{$name}</div>";
+			echo '<div class="">Offline <i class="fas fa-battery-empty"></i></div>';
 		} elseif ($fp) {
-			echo "<div class='item online'> <div class='left'>{$name}</div>";
-			echo '<div class="right indicator online">Operational <i class="fas fa-battery-full"></i></div>';
+			echo "<div class='status online'> <div class='server-name'>{$name}</div>";
+			echo '<div class="server-status">Operational <i class="fas fa-battery-full"></i></div>';
 		}
 	} elseif ($manual == "1" or "2" or "3") {
 		if ($manual == "1") {
-			echo "<div class='item online'> <div class='left'>{$name}</div>";
-			echo '<div class="right indicator online">Operational <i class="fas fa-battery-full"></i></div>';
+			echo "<div class='status online'> <div class='server-name'>{$name}</div>";
+			echo '<div class="server-status ">Operational <i class="fas fa-battery-full"></i></div>';
 		} elseif ($manual == "2") {
-			echo "<div class='item issues'> <div class='left'>{$name}</div>";
-			echo '<div class="right indicator issues">Issues <i class="fas fa-battery-half"></i></div>';
+			echo "<div class='status issues'> <div class='server-name'>{$name}</div>";
+			echo '<div class="server-status ">Issues <i class="fas fa-battery-half"></i></div>';
 		} elseif ($manual == "3") {
-			echo "<div class='item offline'> <div class='left'>{$name}</div>";
-			echo '<div class="right indicator offline">Offline <i class="fas fa-battery-empty"></i></div>';
+			echo "<div class='status offline'> <div class='server-name'>{$name}</div>";
+			echo '<div class="server-status ">Offline <i class="fas fa-battery-empty"></i></div>';
 		}
 	}
 	echo "</div>";
@@ -52,19 +52,10 @@ function getStatusBoxes($ip, $port, $manual, $name)
 		}
 	</script>
 	<style>
-		body {
-			height: 100vh;
-			width: 100%;
-			overflow: hidden;
-			margin: 0;
-			background-color: rgb(39, 43, 48);
-			font-family: 'Inria Sans', sans-serif;
-		}
-
 		.loader {
 			height: 100vh;
 			width: 100%;
-			background-color: <?php echo $colorhex ?>;
+			background-color: blue;
 			position: absolute;
 			z-index: 10;
 		}
@@ -100,105 +91,71 @@ function getStatusBoxes($ip, $port, $manual, $name)
 			animation-fill-mode: forwards;
 		}
 
-		.body {
-			display: flex;
-			height: 90vh;
-			width: 100%;
+		body {
+			background: url("https://images.pexels.com/photos/532001/pexels-photo-532001.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260") no-repeat center center fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
 			background-size: cover;
-			background-repeat: no-repeat;
-			position: absolute;
-			z-index: 1;
-			align-items: center;
-			justify-content: center;
-			overflow: hidden;
-		}
-
-		.body .announcementspacer {
-			width: 44vw;
-		}
-
-		.body .announcement {
-			z-index: 3;
-			width: 44vw;
-			padding-top: 1.5vh;
-			padding-bottom: 1.5vh;
-			font-size: 1.75vh;
-			color: #fff;
-			background-color: <?php echo $colorhex ?>;
-			border-radius: 1vh;
-			text-align: center;
-		}
-
-		.body .announcement h1 {
-			font-size: 2.5vh;
-			margin: 0;
-			margin-bottom: 1vh;
-		}
-
-		.body .announcement p {
-			font-size: 1.75vh;
+			font-family: 'Inria Sans', sans-serif;
 			margin: 0;
 		}
 
-		.body .screen {
-			display: flex;
-			height: 90vh;
-			width: 100%;
-			position: absolute;
-			z-index: 2;
-			background-image: linear-gradient(rgba(<?php echo $colorrgb ?>, .5), rgba(39, 43, 48, 1));
-			align-items: center;
-			justify-content: center;
-			text-align: center;
-		}
-
-		.body .screen .spacer {
-			display: flex;
-			margin-top: 5vh;
-			min-height: 50vh;
-			min-width: 40vw;
-			padding: 5vh 2%;
-			background-color: rgba(255, 255, 255, .2);
-			align-items: center;
-			justify-content: center;
-		}
-
-		.body .screen .spacer .center {
-			width: 100%;
-		}
-
-		.body .screen .spacer .center h1 {
-			font-size: 3vh;
-			color: #fff;
-			margin: 0;
-			margin-bottom: 2vh;
-		}
-
-		.body .screen .spacer .center .item {
-			display: flex;
-			font-size: 1.75vh;
-			width: 85%;
-			margin-left: 5.5%;
-			color: #fff;
-			border-radius: 5vh;
-			padding: 2vh 2%;
-			align-items: center;
-			justify-content: center;
-			margin-bottom: 2vh;
-		}
-
-		.body .screen .spacer .center .item .left {
+		.announcement-container {
 			width: 25%;
-			margin-left: 2.5%;
-			margin-right: 22.5%;
-			text-align: center;
+			background-color: #1C2035;
+			padding: 8px 24px;
+			margin: 40px auto;
+			border-radius: 20px;
+			color: white;
+			word-wrap: wrap;
 		}
 
-		.body .screen .spacer .center .item .right {
-			width: 25%;
-			margin-left: 22.5%;
-			margin-right: 2.5%;
-			text-align: center;
+		.announcement-container h1 {
+			font-weight: 300;
+			letter-spacing: 0.025em;
+		}
+
+		.status-container {
+			width: 35%;
+			background-color: rgba(47, 55, 118, 0.8);
+			padding: 8px 24px;
+			margin: 0px auto;
+			border-radius: 20px;
+		}
+
+		.statuses {
+			margin: 15px;
+		}
+
+		.statuses h1 {
+			color: white;
+			font-weight: 300;
+			letter-spacing: 0.025em;
+			font-size: 1.5rem;
+		}
+
+		.status {
+			display: flex;
+			justify-content: space-between;
+			padding: 25px 20px;
+			border-radius: 50px;
+			margin-top: 15px;
+			color: white;
+		}
+
+		.server-name {
+			padding-left: 30px;
+			font-size: 1.3rem;
+			font-weight: 300;
+			letter-spacing: 0.025em;
+		}
+
+		.server-status {
+			padding-right: 30px;
+			font-size: 1.1rem;
+			font-weight: 100;
+			letter-spacing: 0.025em;
 		}
 
 		@keyframes preloader {
@@ -233,23 +190,72 @@ function getStatusBoxes($ip, $port, $manual, $name)
 			}
 		}
 
-		@media screen and (max-width: 600px),
+		@media screen and (max-width: 1300px),
 		(orientation : portrait) {
-			.body .announcementspacer {
-				width: 94vw;
+			.announcement-container {
+				width: 65%;
 			}
 
-			.body .announcement {
-				width: 94vw;
+			.status-container {
+				width: 85%;
+				padding: 8px 24px;
+				margin: 0px auto;
+				border-radius: 20px;
 			}
 
-			.body .screen .spacer {
-				min-width: 90vw;
+			.statuses h1 {
+				font-size: 1.5rem;
 			}
 
-			.body .screen .spacer .center .item {
-				margin-left: 5.5%;
+			.server-name {
+				padding-left: 30px;
+				font-size: 1.3rem;
+				font-weight: 300;
+				letter-spacing: 0.025em;
 			}
+
+			.server-status {
+				padding-right: 30px;
+				font-size: 1rem;
+				font-weight: 100;
+				letter-spacing: 0.025em;
+			}
+
+			.status {
+				padding: 20px 15px;
+				margin-top: 15px;
+			}
+
+		}
+
+		header {
+			width: 100%;
+			color: white;
+			background-color: #2A2F45;
+			padding: 15px 0;
+		}
+
+		header .header-content {
+			width: 85%;
+			margin: 0 auto;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		header h1 {
+			font-weight: 300;
+			letter-spacing: 0.025em;
+			font-size: 1.5rem;
+		}
+
+		header a {
+			font-weight: 300;
+			letter-spacing: 0.025em;
+			font-size: 1rem;
+			color: white;
+			text-decoration: none;
+
 		}
 
 		.online {
@@ -265,32 +271,37 @@ function getStatusBoxes($ip, $port, $manual, $name)
 		}
 	</style>
 </head>
-<section class="loader" id="loader">
-	<div class="loading">
-	</div>
-</section>
 
 <body>
-	<section class="body">
-		<div class="screen">
-			<div class="announcementspacer">
-				<?php if ($announcement !== "") { ?>
-					<div class="announcement">
-						<h1>Notification</h1>
-						<p><?php echo $announcement ?></p>
-					</div>
-				<?php } ?>
+	<section class="loader" id="loader">
+		<div class="loading">
+		</div>
+	</section>
 
-				<div class="spacer">
-					<div class="center">
-						<h1>Server Status</h1>
-						<?php
-						foreach ($servers as $name => $information) {
-						?>
-							<?php getStatusBoxes($information['IP'], $information['port'], $information['status'], $name) ?>
-						<?php } ?>
-					</div>
+	<header>
+		<div class="header-content">
+			<h1><?php echo $name ?></h1>
+			<a href="<?php echo $domain; ?>">Back to Home Page</a>
+		</div>
+	</header>
+
+	<section class="body">
+
+		<?php if ($announcement !== "") { ?>
+			<div class="announcement-container">
+				<div class="announcement">
+					<h1>Notification:</h1>
+					<p><?php echo $announcement ?></p>
 				</div>
+			</div>
+		<?php } ?>
+
+		<div class="status-container">
+			<div class="statuses">
+				<h1><?php echo $name; ?>'s Server Statuses</h1>
+				<?php foreach ($servers as $name => $information) {	?>
+					<?php getStatusBoxes($information['IP'], $information['port'], $information['status'], $name) ?>
+				<?php } ?>
 			</div>
 		</div>
 	</section>
