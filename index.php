@@ -120,7 +120,7 @@ function getStatusBoxes($ip, $port, $manual, $name)
 			width: 35%;
 			background-color: rgba(47, 55, 118, 0.8);
 			padding: 8px 24px;
-			margin: 0px auto;
+			margin: 40px auto;
 			border-radius: 20px;
 		}
 
