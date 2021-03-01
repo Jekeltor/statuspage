@@ -1,4 +1,5 @@
 <?php
+session_start();
 /////////////////////////////////////////////////////////////////////////
 //                                                                     //
 //                       Created by Jake Hamblin                       //
@@ -11,6 +12,8 @@
 /* GENERAL SITE INFORMATION  */
 // Name of your server/community
 $name = "San Andreas Shoreline RP";
+
+$config_password = "password";
 
 // Domain of your server/community
 $domain = "https://statuspage.test";
