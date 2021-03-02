@@ -1,63 +1,53 @@
 <?php
-	/////////////////////////////////////////////////////////////////////////
-	//                                                                     //
-	//                       Created by Jake Hamblin                       //
-    //                           jakehamblin.com                           //
-	//                                                                     //
-	//  FOR ALL THE VALUES, MAKE SURE TO KEEP THE QUOTATIONS AROUND THEM!  //
-	//                                                                     //
-	/////////////////////////////////////////////////////////////////////////
+session_start();
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//                       Created by Jake Hamblin                       //
+//                           jakehamblin.com                           //
+//                                                                     //
+//  FOR ALL THE VALUES, MAKE SURE TO KEEP THE QUOTATIONS AROUND THEM!  //
+//                                                                     //
+/////////////////////////////////////////////////////////////////////////
 
-	/* GENERAL SITE INFORMATION  */
-	// Name of your server/community
-	$name = "Community Name";
+/* GENERAL SITE INFORMATION  */
+// Name of your server/community
+$name = "San Andreas Shoreline RP";
 
-	// Logo of your server/community
-	$logo = $domain."images/logo.png";
+$config_password = "password";
 
-	// Description of your server/community
-	$description = "Description";
+// Domain of your server/community
+$domain = "https://statuspage.test";
 
-	// Main Color
-	$colorhex = "#0f7cff";
-	/* END GENERAL SITE INFORMATION */
+// Logo of your server/community
+$logo = $domain . "images/logo.png";
 
-	/* START STATUS PAGE */
-	// 0 = automatic, 1 = operational, 2 = issues, 3 = offline
-	$servers = [
-		"Test Server 1" => [
-			"IP" => "jakehamblin.com",
-			"port" => "80",
-			"status" => "1",
-		],
-		"Test Server 2" => [
-			"IP" => "jakehamblin.com",
-			"port" => "80",
-			"status" => "2",
-		],
-		"Test Server 3" => [
-			"IP" => "jakehamblin.com",
-			"port" => "80",
-			"status" => "3",
-		],
-		"Test Server 4" => [
-			"IP" => "jakehamblin.com",
-			"port" => "30120",
-			"status" => "0",
-		],
-	];
+// Description of your server/community
+$description = "Description";
 
-	// If empty, the announcement won't appear
-	$announcement = "Servers one and two are having some issues";
-	/* END STATUS PAGE */
+// Main Color
+$colorhex = "#FF0000";
+/* END GENERAL SITE INFORMATION */
 
+/* START STATUS PAGE */
+// 0 = automatic, 1 = operational, 2 = issues, 3 = offline
+$servers = [
+	"Main FiveM Server" => [
+		"IP" => "server1.sas-rp.net",
+		"port" => "80",
+		"status" => "0",
+	],
+	"play.sas-rp.net" => [
+		"IP" => "play.sas-rp.net",
+		"port" => "443",
+		"status" => "0",
+	],
+	"Teamspeak" => [
+		"IP" => "ts.sas-rp.net",
+		"port" => "80",
+		"status" => "0",
+	],
+];
 
-	/* RANDOM PHP FUNCTIONS AND JOBS */
-	// Convert HEX provided to RGB
-	list($r, $g, $b) = sscanf($colorhex, "#%02x%02x%02x");
-	$colorrgb = $r.", ".$g.", ".$b;
-
-	// Make color darked
-	$darkerpercent = ".5";
-	$colordarker = $r*$darkerpercent.", ".$g*$darkerpercent.", ".$b*$darkerpercent;
-?>
+// If empty, the announcement won't appear
+$announcement = "";
+/* END STATUS PAGE */
